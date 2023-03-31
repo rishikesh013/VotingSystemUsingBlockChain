@@ -11,7 +11,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 
+load_dotenv()  # take environment variables from .env.
+
+# Code of your application, which uses environment variables (e.g. from `os.environ` or
+# `os.getenv`) as if they came from the actual environment.
+
+E_NAME = os.getenv("E_NAME")
+E_PASSWORD = os.getenv("E_PASSWORD")
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -120,16 +128,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-EMAIL_ADDRESS = 'rishikesh1113@gmail.com'
-EMAIL_PASSWORD = 'ggzhommwnjjehzhf'
-# EMAIL_ADDRESS = 'akvindian26@gmail.com'
-# EMAIL_PASSWORD = 'bqmrvpvpsvuahlor'
+EMAIL_ADDRESS = E_NAME
+EMAIL_PASSWORD = E_PASSWORD
+
 TRANSACTIONS_PER_BLOCK = 1
 #Email Settings 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'rishikesh1113@gmail.com'
-EMAIL_HOST_PASSWORD = 'ggzhommwnjjehzhf'
+EMAIL_HOST_USER = E_NAME
+EMAIL_HOST_PASSWORD = E_PASSWORD
 EMAIL_USE_TLS = True
 
 # PUZZLE
